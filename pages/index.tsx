@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
+import { Button, Calendar } from "antd";
 
 const Home = () => {
   return (
@@ -11,7 +12,8 @@ const Home = () => {
       </Head>
 
       <Nav />
-
+      <Button type="primary">HelloWorld</Button>
+      <Calendar />
       <div className="hero">
         <h1 className="title">Welcome to Next.js!</h1>
         <p className="description">
