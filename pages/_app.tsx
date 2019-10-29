@@ -1,5 +1,7 @@
-import React from 'react'
-import App from 'next/app'
+import React, { Fragment } from "react";
+import App from "next/app";
+import Head from "next/head";
+import "../styles/app.less";
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -15,9 +17,18 @@ class MyApp extends App {
   // }
 
   render() {
-    const { Component, pageProps } = this.props
-    return <Component {...pageProps} />
+    const { Component, pageProps } = this.props;
+
+    return (
+      <Fragment>
+        <Head>
+          <title>Pepewitch</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Component {...pageProps} />
+      </Fragment>
+    );
   }
 }
 
-export default MyApp
+export default MyApp;
