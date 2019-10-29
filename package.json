@@ -9,12 +9,17 @@
     "start": "next start",
     "export": "next export",
     "predeploy": "yarn build && yarn export && touch out/.nojekyll",
-    "deploy": "gh-pages -b master -d out"
+    "deploy": "gh-pages -t -b master -d out"
   },
   "dependencies": {
     "gh-pages": "^2.1.1",
     "next": "9.1.1",
     "react": "16.11.0",
     "react-dom": "16.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/react": "^16.9.11",
+    "typescript": "^3.6.4"
   }
 }
