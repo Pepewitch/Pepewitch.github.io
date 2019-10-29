@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Pepewitch.github.io/static/css/main.dfca195d.chunk.css",
+    "main.js": "/Pepewitch.github.io/static/js/main.8b4cbf29.chunk.js",
+    "main.js.map": "/Pepewitch.github.io/static/js/main.8b4cbf29.chunk.js.map",
+    "runtime-main.js": "/Pepewitch.github.io/static/js/runtime-main.ff8a90a1.js",
+    "runtime-main.js.map": "/Pepewitch.github.io/static/js/runtime-main.ff8a90a1.js.map",
+    "static/js/2.ea8411b5.chunk.js": "/Pepewitch.github.io/static/js/2.ea8411b5.chunk.js",
+    "static/js/2.ea8411b5.chunk.js.map": "/Pepewitch.github.io/static/js/2.ea8411b5.chunk.js.map",
+    "index.html": "/Pepewitch.github.io/index.html",
+    "precache-manifest.00de3d224fd3bcdb10a388b9547006de.js": "/Pepewitch.github.io/precache-manifest.00de3d224fd3bcdb10a388b9547006de.js",
+    "service-worker.js": "/Pepewitch.github.io/service-worker.js",
+    "static/css/main.dfca195d.chunk.css.map": "/Pepewitch.github.io/static/css/main.dfca195d.chunk.css.map",
+    "static/media/logo.svg": "/Pepewitch.github.io/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff8a90a1.js",
+    "static/js/2.ea8411b5.chunk.js",
+    "static/css/main.dfca195d.chunk.css",
+    "static/js/main.8b4cbf29.chunk.js"
+  ]
+}
