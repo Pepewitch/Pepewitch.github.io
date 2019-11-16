@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
 import App from "next/app";
 import Head from "next/head";
+import React, { Fragment } from "react";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     width: 100%;
     margin: 0;
+    background-color: #f8f8f8;
+    font-family: 'Kanit', sans-serif;
   }
 `;
 
@@ -33,6 +35,10 @@ class MyApp extends App {
         <Head>
           <title>Pepewitch</title>
           <link rel="icon" href="/favicon.ico" />
+          <link
+            href={"https://fonts.googleapis.com/css?family=Kanit&display=swap"}
+            rel="stylesheet"
+          />
         </Head>
         <GlobalStyle />
         <Component {...pageProps} />

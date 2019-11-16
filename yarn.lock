@@ -875,6 +875,14 @@
   resolved "https://registry.yarnpkg.com/@types/randomcolor/-/randomcolor-0.5.3.tgz#2030101c695dd1b048e82ba3d5e6d605b37b9c0c"
   integrity sha512-eIhyxP1VKqLRNPrQ9yhsenCj8W+ZIzMrUZqjLCyy1KTV1noh0YPi0DWqTITG82buHVZpzKOf6CCznvZHRQIRPg==
 
+"@types/react-native@*":
+  version "0.60.22"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.22.tgz#ba199a441cb0612514244ffb1d0fe6f04c878575"
+  integrity sha512-LTXMKEyGA+x4kadmjujX6yAgpcaZutJ01lC7zLJWCULaZg7Qw5/3iOQpwIJRUcOc+a8A2RR7rSxplehVf9IuhA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
 "@types/react-slick@^0.23.4":
   version "0.23.4"
   resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.4.tgz#c97e2a9e7e3d1933c68593b8e82752fab1e8ce53"
@@ -888,6 +896,15 @@
   integrity sha512-UBT4GZ3PokTXSWmdgC/GeCGEJXE5ofWyibCcecRLUVN2ZBpXQGVgQGtG2foS7CrTKFKlQVVswLvf7Js6XA/CVQ==
   dependencies:
     "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/styled-components@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.4.0.tgz#15a3d59533fd3a5bd013db4a7c4422ec542c59d2"
+  integrity sha512-QFl+w3hQJNHE64Or3PXMFpC3HAQDiuQLi5o9m1XPEwYWfgCZtAribO5ksjxnO8U0LG8Parh0ESCgVxo4VfxlHg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
     csstype "^2.2.0"
 
 "@webassemblyjs/ast@1.8.5":
@@ -5825,6 +5842,11 @@ react-error-overlay@5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
+react-firebase-hooks@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-2.1.1.tgz#7180b86e4bd8e33699003a41e6d33f280a54319a"
+  integrity sha512-6ZvAUa5q1JJrTQxCEKCXrP6S/en3B65RAYRYHbbjUh9f1BgKPsxkdaGGBPhGKuVSLUrVqTm8PtpZ/LCtAFogKA==
+
 react-is@16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
@@ -5850,7 +5872,7 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-sizeme@^2.2.0:
+react-sizeme@^2.2.0, react-sizeme@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/react-sizeme/-/react-sizeme-2.6.10.tgz#9993dcb5e67fab94a8e5d078a0d3820609010f17"
   integrity sha512-OJAPQxSqbcpbsXFD+fr5ARw4hNSAOimWcaTOLcRkIqnTp9+IFWY0w3Qdw1sMez6Ao378aimVL/sW6TTsgigdOA==

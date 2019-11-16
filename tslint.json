@@ -3,7 +3,8 @@
   "extends": ["tslint:latest", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "ordered-imports": true
+    "ordered-imports": true,
+    "no-submodule-imports": false
   },
   "rulesDirectory": []
 }
