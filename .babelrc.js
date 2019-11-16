@@ -9,7 +9,14 @@ module.exports = {
         style: true
       }
     ],
-    "babel-plugin-styled-components"
+    [
+      "babel-plugin-styled-components",
+      {
+        ssr: true,
+        displayName: true,
+        minify: true
+      }
+    ]
   ],
   ignore: ["node_modules"]
 };
