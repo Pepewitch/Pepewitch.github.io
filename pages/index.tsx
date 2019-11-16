@@ -1,12 +1,14 @@
 import { Form, Typography } from "antd";
 import React, { useCallback, useRef } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import { CommendBox } from "../components/CommendBox";
 import { Header } from "../components/Header";
 import { Image } from "../components/Image";
 import { ResponsiveStackGrid } from "../components/ResponsiveStackGrid";
-import { Showcase, showcases } from "../configs/showcases";
+import firebase from "../utils/firebase";
+import { Showcase, showcases } from "../utils/showcases";
 
 const { Title, Paragraph } = Typography;
 
@@ -26,6 +28,8 @@ interface IShowcaseCardProps {
 
 const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
   const { href, src, title, description } = showcase;
+  const [user, initialising, error] = useAuthState(firebase.auth());
+
   return (
     <Card>
       <a href={href} target="_blank">
@@ -41,7 +45,7 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
           </Paragraph>
         )}
         <CommendBox
-          user={{}}
+          user={user}
           showcase={showcase}
           onSubmit={e => {
             console.log(e);

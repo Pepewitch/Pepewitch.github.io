@@ -2,7 +2,7 @@ import { Avatar, Button, Form, Input } from "antd";
 import { WrappedFormUtils } from "antd/lib/form/Form";
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import { Showcase } from "../configs/showcases";
+import { Showcase } from "../utils/showcases";
 
 const CommendInput = styled(Input)`
   .ant-input {
@@ -16,7 +16,7 @@ const CommendInput = styled(Input)`
 interface ICommendBoxProps {
   showcase: Showcase;
   onSubmit: (value: any) => any;
-  user: any;
+  user?: firebase.User;
   form: WrappedFormUtils;
 }
 
@@ -40,7 +40,9 @@ export const CommendBox = Form.create<ICommendBoxProps>({
       <Form.Item>
         {getFieldDecorator("commend")(
           <CommendInput
-            placeholder={user ? "Commend" : "Login to commend"}
+            placeholder={
+              user ? `Commend as ${user.displayName}` : "Sign in to commend"
+            }
             disabled={!user}
             autoComplete="off"
             name="commend"
@@ -48,7 +50,7 @@ export const CommendBox = Form.create<ICommendBoxProps>({
               <Avatar
                 size={24}
                 {...{
-                  src: user ? user.profile : undefined,
+                  src: user ? user.photoURL : undefined,
                   icon: !user ? "user" : undefined
                 }}
               />

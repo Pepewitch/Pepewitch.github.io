@@ -3,7 +3,7 @@ const path = require("path");
 
 const lessToJS = require("less-vars-to-js");
 const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
-const withCss = require("@zeit/next-css")
+const withCss = require("@zeit/next-css");
 const withAntd = require("./configs/next-antd.config");
 
 const antdVariables = lessToJS(
@@ -33,7 +33,21 @@ module.exports = withCss(
           exclude: /mini-css-extract-plugin[^]*Conflicting order between:/
         })
       );
-
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgoConfig: {
+                plugins: {
+                  removeViewBox: false
+                }
+              }
+            }
+          }
+        ]
+      });
       return config;
     }
   })

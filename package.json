@@ -12,8 +12,10 @@
     "deploy": "gh-pages -t -b master -d out"
   },
   "dependencies": {
+    "@svgr/webpack": "^4.3.3",
     "antd": "^3.24.3",
     "babel-plugin-import": "^1.12.2",
+    "firebase": "^7.4.0",
     "gh-pages": "^2.1.1",
     "lodash": "^4.17.15",
     "next": "9.1.1",
