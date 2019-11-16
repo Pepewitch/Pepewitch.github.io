@@ -62,6 +62,7 @@ const SignInButton = () => {
     <Popover
       placement="bottomRight"
       title="Sign in method"
+      trigger="click"
       content={
         <SignInPopContent>
           <SignInLogoButton

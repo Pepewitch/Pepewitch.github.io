@@ -13,6 +13,12 @@ const CommendInput = styled(Input)`
   }
 `;
 
+const StyledForm = styled(Form)`
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+`;
+
 interface ICommendBoxProps {
   showcase: Showcase;
   onSubmit: (value: any) => any;
@@ -36,7 +42,7 @@ export const CommendBox = Form.create<ICommendBoxProps>({
     [form, onSubmit]
   );
   return (
-    <Form onSubmit={formOnSubmit}>
+    <StyledForm onSubmit={formOnSubmit}>
       <Form.Item>
         {getFieldDecorator("commend")(
           <CommendInput
@@ -58,6 +64,6 @@ export const CommendBox = Form.create<ICommendBoxProps>({
           />
         )}
       </Form.Item>
-    </Form>
+    </StyledForm>
   );
 });

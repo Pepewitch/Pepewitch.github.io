@@ -1,9 +1,20 @@
-import { Form, Typography } from "antd";
-import React, { useCallback, useRef } from "react";
+import {
+  Avatar,
+  Comment,
+  Divider,
+  Form,
+  Icon,
+  Tooltip,
+  Typography
+} from "antd";
+import moment from "moment";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useDocument } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import { CommendBox } from "../components/CommendBox";
+import { CommentList } from "../components/CommentList";
 import { Header } from "../components/Header";
 import { Image } from "../components/Image";
 import { ResponsiveStackGrid } from "../components/ResponsiveStackGrid";
@@ -21,15 +32,30 @@ const ShowcaseBody = styled.div`
   padding: 16px;
 `;
 
+const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+`;
+
 interface IShowcaseCardProps {
   showcase: Showcase;
-  onSizeChange: () => any;
+  onSizeChange?: () => any;
 }
 
 const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
   const { href, src, title, description } = showcase;
   const [user, initialising, error] = useAuthState(firebase.auth());
-
+  const [snapshot, loading] = useDocument(
+    firebase.firestore().doc(`showcase/${showcase.key}`)
+  );
+  const comments = useMemo(() => {
+    if (snapshot && snapshot.data()) return snapshot.data().comments;
+    return undefined;
+  }, [snapshot]);
+  useEffect(() => {
+    if (onSizeChange) onSizeChange();
+  }, [comments, onSizeChange]);
   return (
     <Card>
       <a href={href} target="_blank">
@@ -44,11 +70,31 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
             {description}
           </Paragraph>
         )}
+        {loading && (
+          <SpinnerContainer>
+            <Icon
+              type="loading"
+              style={{ fontSize: 32, color: "#ff577d" }}
+              spin
+            />
+          </SpinnerContainer>
+        )}
+        {comments && <CommentList comments={comments} user={user} />}
         <CommendBox
           user={user}
           showcase={showcase}
           onSubmit={e => {
-            console.log(e);
+            if (comments) {
+              firebase
+                .firestore()
+                .doc(`showcase/${showcase.key}`)
+                .update({
+                  comments: [
+                    ...comments,
+                    { createdAt: new Date(), content: e, uid: user.uid }
+                  ]
+                });
+            }
           }}
         />
       </ShowcaseBody>
@@ -65,10 +111,10 @@ const Index = () => {
   return (
     <Container>
       <Header />
-      <ResponsiveStackGrid ref={stackGridRef}>
-        {showcases.map((showcase, index) => (
+      <ResponsiveStackGrid gridRef={stackGridRef}>
+        {showcases.map(showcase => (
           <ShowcaseCard
-            key={showcase.title + index}
+            key={showcase.key}
             showcase={showcase}
             onSizeChange={onSizeChange}
           />
