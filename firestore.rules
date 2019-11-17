@@ -1,7 +1,7 @@
 service cloud.firestore {
   match /databases/{database}/documents {
     match /showcase/{showcase}/comment/{commentId} {
-      allow create: if request.auth.id != null;
+      allow create: if request.auth.uid != null;
       allow update, delete: if request.auth.uid == get(/databases/$(database)/documents/showcase/$(showcase)/comment/$(commentId)).data.uid;
     }
     match /{document=**} {
