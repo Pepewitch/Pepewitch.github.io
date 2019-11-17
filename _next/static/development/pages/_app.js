@@ -13724,7 +13724,7 @@ var _jsxFileName = "/Users/pepe_witch/work/project/Pepewitch.github.io/pages/_ap
 var __jsx = react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement;
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_6__["default"])(["\n  body, #__next {\n    height: 100vh;\n    width: 100%;\n    margin: 0;\n    background-color: #f8f8f8;\n    font-family: 'Kanit', sans-serif;\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_6__["default"])(["\n  body, #__next {\n    height: 100vh;\n    width: 100%;\n    font-family: 'Kanit', sans-serif;\n    margin: 0;\n    overflow: auto;\n    background: rgb(255,0,134);\n    background: linear-gradient(45deg, rgba(255,0,134,0.43040966386554624) 0%, rgba(255,212,212,0.4864320728291317) 100%);\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13770,19 +13770,19 @@ function (_App) {
       return __jsx(react__WEBPACK_IMPORTED_MODULE_9__["Fragment"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 36
         },
         __self: this
       }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_8___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 37
         },
         __self: this
       }, __jsx("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 38
         },
         __self: this
       }, "Pepewitch"), __jsx("link", {
@@ -13790,7 +13790,7 @@ function (_App) {
         href: "/favicon.ico",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 39
         },
         __self: this
       }), __jsx("link", {
@@ -13798,19 +13798,19 @@ function (_App) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 40
         },
         __self: this
       })), __jsx(GlobalStyle, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 45
         },
         __self: this
       }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 46
         },
         __self: this
       })));
