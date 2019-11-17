@@ -7,9 +7,10 @@ const GlobalStyle = createGlobalStyle`
   body, #__next {
     height: 100vh;
     width: 100%;
-    margin: 0;
-    background-color: #f8f8f8;
     font-family: 'Kanit', sans-serif;
+    margin: 0;
+    overflow: auto;
+    background: #f8f8f8;
   }
 `;
 

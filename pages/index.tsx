@@ -38,6 +38,12 @@ const SpinnerContainer = styled.div`
   margin: 8px 0;
 `;
 
+const StyledTitle = styled(Title)`
+  &.ant-typography {
+    color: #ff577d;
+  }
+`;
+
 interface IShowcaseCardProps {
   showcase: Showcase;
   onSizeChange?: () => any;
@@ -49,6 +55,16 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
   const [snapshot, loading] = useDocument(
     firebase.firestore().doc(`showcase/${showcase.key}`)
   );
+  useEffect(() => {
+    if (user && snapshot && !snapshot.data()) {
+      firebase
+        .firestore()
+        .doc(`showcase/${showcase.key}`)
+        .set({
+          comments: []
+        });
+    }
+  }, [snapshot]);
   const comments = useMemo(() => {
     if (snapshot && snapshot.data()) return snapshot.data().comments;
     return undefined;
@@ -63,7 +79,7 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
       </a>
       <ShowcaseBody>
         <a href={href} target="_blank">
-          <Title level={4}>{title}</Title>
+          <StyledTitle level={4}>{title}</StyledTitle>
         </a>
         {description && (
           <Paragraph type="secondary" ellipsis={{ rows: 4 }}>
