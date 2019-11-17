@@ -5,11 +5,10 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body, #__next {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     font-family: 'Kanit', sans-serif;
     margin: 0;
-    overflow: auto;
     background: #f8f8f8;
   }
 `;

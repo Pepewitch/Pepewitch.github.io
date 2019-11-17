@@ -8,9 +8,15 @@ import {
   Typography
 } from "antd";
 import moment from "moment";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDocument } from "react-firebase-hooks/firestore";
+import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import { CommendBox } from "../components/CommendBox";
@@ -52,22 +58,13 @@ interface IShowcaseCardProps {
 const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
   const { href, src, title, description } = showcase;
   const [user, initialising, error] = useAuthState(firebase.auth());
-  const [snapshot, loading] = useDocument(
-    firebase.firestore().doc(`showcase/${showcase.key}`)
+  const [snapshot, loading] = useCollection(
+    firebase.firestore().collection(`showcase/${showcase.key}/comment`)
   );
-  useEffect(() => {
-    if (user && snapshot && !snapshot.data()) {
-      firebase
-        .firestore()
-        .doc(`showcase/${showcase.key}`)
-        .set({
-          comments: []
-        });
-    }
-  }, [snapshot]);
   const comments = useMemo(() => {
-    if (snapshot && snapshot.data()) return snapshot.data().comments;
-    return undefined;
+    return (
+      snapshot && snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    );
   }, [snapshot]);
   useEffect(() => {
     if (onSizeChange) onSizeChange();
@@ -95,7 +92,18 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
             />
           </SpinnerContainer>
         )}
-        {comments && <CommentList comments={comments} user={user} />}
+        {comments && (
+          <CommentList
+            comments={comments}
+            user={user}
+            onDelete={comment => {
+              firebase
+                .firestore()
+                .doc(`showcase/${showcase.key}/comment/${comment.id}`)
+                .delete();
+            }}
+          />
+        )}
         <CommendBox
           user={user}
           showcase={showcase}
@@ -103,12 +111,11 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
             if (comments) {
               firebase
                 .firestore()
-                .doc(`showcase/${showcase.key}`)
-                .update({
-                  comments: [
-                    ...comments,
-                    { createdAt: new Date(), content: e, uid: user.uid }
-                  ]
+                .collection(`showcase/${showcase.key}/comment`)
+                .add({
+                  createdAt: new Date(),
+                  content: e,
+                  uid: user.uid
                 });
             }
           }}
