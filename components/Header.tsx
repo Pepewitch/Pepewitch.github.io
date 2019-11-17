@@ -1,4 +1,4 @@
-import { Avatar, Button, Popconfirm, Popover, Typography } from "antd";
+import { Avatar, Button, Icon, Popconfirm, Popover, Typography } from "antd";
 import React, { Fragment } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styled from "styled-components";
@@ -6,7 +6,7 @@ import FbIcon from "../public/fb.svg";
 import GgIcon from "../public/gg.svg";
 import firebase from "../utils/firebase";
 
-const { Text } = Typography;
+const { Title } = Typography;
 
 const Container = styled.div`
   position: fixed;
@@ -21,6 +21,11 @@ const Container = styled.div`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
   z-index: 10;
   justify-content: space-between;
+  .container-item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 `;
 
 const SignInLogoButton = styled(Button)`
@@ -42,6 +47,27 @@ const IconContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
   display: inline-block;
+`;
+
+const SocialLink = styled.a`
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+const StyledTitle = styled(Title)`
+  &.ant-typography {
+    margin-right: 8px;
+    margin-bottom: 0;
+    color: #ff577d;
+  }
 `;
 
 const getFacebookProvider = () => {
@@ -95,10 +121,24 @@ export const Header = () => {
   const [user, initialising, error] = useAuthState(firebase.auth());
   return (
     <Container>
-      <div>
-        <Text strong>Pepewitch</Text>
+      <div className="container-item">
+        <a href="mailto:skpepe134@gmail.com">
+          <StyledTitle level={4}>Pepewitch</StyledTitle>
+        </a>
+        <SocialLink href="https://facebook.com/pepewitch" target="_blank">
+          <Icon type="facebook" theme="filled" />
+        </SocialLink>
+        <SocialLink
+          href="https://medium.com/@witchayutpepejongpattanasombut"
+          target="_blank"
+        >
+          <Icon type="medium-square" theme="filled" />
+        </SocialLink>
+        <SocialLink href="https://github.com/Pepewitch" target="_blank">
+          <Icon type="github" theme="filled" />
+        </SocialLink>
       </div>
-      <div>
+      <div className="container-item">
         {user ? (
           <Popconfirm
             placement="bottomRight"

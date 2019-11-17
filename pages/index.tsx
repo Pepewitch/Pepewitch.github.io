@@ -1,22 +1,7 @@
-import {
-  Avatar,
-  Comment,
-  Divider,
-  Form,
-  Icon,
-  Tooltip,
-  Typography
-} from "antd";
-import moment from "moment";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import { Icon, Typography } from "antd";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+import { useCollection } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import { CommendBox } from "../components/CommendBox";
