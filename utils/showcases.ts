@@ -57,5 +57,14 @@ export const showcases: Showcase[] = [
     title: `Spotify Top Song`,
     description: `[Deploy with Google Cloud Run] [No maintain] 
     Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
+  },
+  {
+    key: "github_3",
+    href: `https://nokroona.web.app/`,
+    src: `/images/github_3.jpg`,
+    title: `Nok Roo Na`,
+    description: `[Deploy with Firebase Hosting & Heroku] [No maintain]
+    Stupid Hackathon3 Project - Nok Roo Na, LINE exported chat file analytic using rule based prediction.
+    `
   }
 ];
