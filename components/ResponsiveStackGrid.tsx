@@ -10,7 +10,7 @@ export const ResponsiveStackGrid = sizeMe()(
     const columnWidth = useMemo(() => {
       if (width < 500) return "100%";
       else if (width < 768) return "50%";
-      else return 350;
+      else return 320;
     }, [width]);
     return (
       <div style={{ padding: "0 16px" }}>
