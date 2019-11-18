@@ -56,7 +56,7 @@ export const showcases: Showcase[] = [
     src: `/images/github_2.jpg`,
     title: `Spotify Top Song`,
     description: `[Deploy with Google Cloud Run] [No maintain] 
-    Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
+    YWC16 Interview Project - Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
   },
   {
     key: "github_3",
