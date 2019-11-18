@@ -1,5 +1,11 @@
 import { Icon, Typography } from "antd";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
@@ -138,11 +144,23 @@ const Index = () => {
     () => stackGridRef && stackGridRef.current.updateLayout(),
     [stackGridRef]
   );
+  const [appearedShowcases, setAppearedShowcases] = useState([]);
+  useEffect(() => {
+    const showShowcases = async () => {
+      const appeared = [];
+      for (const showcase of showcases) {
+        appeared.push(showcase);
+        setAppearedShowcases([...appeared]);
+        await new Promise(res => setTimeout(() => res(), 200));
+      }
+    };
+    showShowcases();
+  }, []);
   return (
     <Container>
       <Header />
       <ResponsiveStackGrid gridRef={stackGridRef}>
-        {showcases.map(showcase => (
+        {appearedShowcases.map(showcase => (
           <ShowcaseCard
             key={showcase.key}
             showcase={showcase}
