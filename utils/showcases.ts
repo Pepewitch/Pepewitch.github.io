@@ -41,5 +41,12 @@ export const showcases: Showcase[] = [
     description: `Export ?
     โดยปกติ เวลาที่เราเขียน React app แล้วเกิด Component ที่คล้ายกันและใช้ซ้ำกันหลาย ๆ ครั้ง เราก็จะทำการ Refactor โดยการแยก Component นั้นออกมาเป็นไฟล์แยกไว้ แล้ว Export ออกมาเพื่อนำไป Import ใช้ตามจุดต่าง ๆ ตามที่ต้องการ
     วิธีการ Export ตัวแปรหรือข้อมูลที่อยู่ในไฟล์นั้น มีอยู่ 2 วิธีหลัก ๆ`
+  },
+  {
+    key: "github_1",
+    href: `https://circular-color-picker.netlify.com/`,
+    src: `/images/github_1.jpg`,
+    title: `Circular-color-picker`,
+    description: `Circular-color-picker react component for generating gradient color with download image button`
   }
 ];

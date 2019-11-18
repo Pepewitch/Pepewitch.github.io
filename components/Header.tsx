@@ -18,7 +18,7 @@ const Container = styled.div`
   align-items: center;
   height: 56px;
   background: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
   justify-content: space-between;
   .container-item {

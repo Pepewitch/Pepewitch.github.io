@@ -17,8 +17,8 @@ export const ResponsiveStackGrid = sizeMe()(
         <StackGrid
           gridRef={grid => (gridRef.current = grid)}
           columnWidth={columnWidth}
-          gutterWidth={16}
-          gutterHeight={16}
+          gutterWidth={24}
+          gutterHeight={24}
           appear={fadeUp.appear}
           appeared={fadeUp.appeared}
           enter={fadeUp.enter}

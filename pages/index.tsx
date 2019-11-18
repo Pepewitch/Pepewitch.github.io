@@ -14,6 +14,28 @@ import { Showcase, showcases } from "../utils/showcases";
 
 const { Title, Paragraph } = Typography;
 
+const StyledCard = styled(Card)`
+  transform: scale(1);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const CardImageLink = styled.a`
+  position: relative;
+  overflow: hidden;
+  .source {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    /* background-color: white; */
+  }
+`;
+
 const Container = styled.div`
   padding-top: 80px;
   padding-bottom: 32px;
@@ -55,10 +77,10 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
     if (onSizeChange) onSizeChange();
   }, [comments, onSizeChange]);
   return (
-    <Card>
-      <a href={href} target="_blank">
+    <StyledCard>
+      <CardImageLink href={href} target="_blank">
         <Image src={src} title={title} />
-      </a>
+      </CardImageLink>
       <ShowcaseBody>
         <a href={href} target="_blank">
           <StyledTitle level={4}>{title}</StyledTitle>
@@ -106,7 +128,7 @@ const ShowcaseCard = ({ showcase, onSizeChange }: IShowcaseCardProps) => {
           }}
         />
       </ShowcaseBody>
-    </Card>
+    </StyledCard>
   );
 };
 
