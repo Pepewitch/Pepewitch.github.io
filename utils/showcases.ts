@@ -48,5 +48,12 @@ export const showcases: Showcase[] = [
     src: `/images/github_1.jpg`,
     title: `Circular-color-picker`,
     description: `Circular-color-picker react component for generating gradient color with download image button`
+  },
+  {
+    key: "github_2",
+    href: `https://spotify-top-song-nauehecpba-uc.a.run.app`,
+    src: `/images/github_2.jpg`,
+    title: `Spotify Top Song`,
+    description: `Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
   }
 ];
