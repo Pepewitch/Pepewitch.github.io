@@ -29,6 +29,18 @@ const Index = () => {
     };
     showShowcases();
   }, []);
+  useEffect(() => {
+    const updateView = () => {
+      requestAnimationFrame(() => {
+        // Fix stack grid resize bug by adding some delay before updateView again
+        setTimeout(() => {
+          onSizeChange();
+        }, 20);
+      });
+    };
+    window.addEventListener("resize", updateView);
+    return () => window.removeEventListener("resize", updateView);
+  }, []);
   return (
     <Container>
       <Header />
