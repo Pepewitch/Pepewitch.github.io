@@ -1,10 +1,39 @@
+export interface ShowcaseTag {
+  color: string;
+  text: string;
+}
+
 export interface Showcase {
   key: string;
   href?: string;
   title: string;
   src: string;
   description?: string;
+  tags?: ShowcaseTag[];
 }
+
+const TAG_OPTION: { [key: string]: ShowcaseTag } = {
+  FIREBASE_HOSTING: {
+    color: "red",
+    text: "Firebase hosting"
+  },
+  NETLIFY: {
+    color: "cyan",
+    text: "Netlify"
+  },
+  GOOGLE_CLOUD_RUN: {
+    color: "blue",
+    text: "Google Cloud Run"
+  },
+  HEROKU: {
+    color: "purple",
+    text: "Heroku"
+  },
+  NO_MAINTAIN: {
+    color: "#555",
+    text: "No maintain"
+  }
+};
 
 export const showcases: Showcase[] = [
   {
@@ -47,24 +76,27 @@ export const showcases: Showcase[] = [
     href: `https://circular-color-picker.netlify.com/`,
     src: `/images/github_1.jpg`,
     title: `Circular-color-picker`,
-    description: `[Deploy with Netlify] [No maintain]
-    Circular-color-picker react component for generating gradient color with download image button`
+    tags: [TAG_OPTION.NETLIFY, TAG_OPTION.NO_MAINTAIN],
+    description: `Circular-color-picker react component for generating gradient color with download image button`
   },
   {
     key: "github_2",
     href: `https://spotify-top-song-nauehecpba-uc.a.run.app`,
     src: `/images/github_2.jpg`,
     title: `Spotify Top Song`,
-    description: `[Deploy with Google Cloud Run] [No maintain] 
-    YWC16 Interview Project - Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
+    tags: [TAG_OPTION.GOOGLE_CLOUD_RUN, TAG_OPTION.NO_MAINTAIN],
+    description: `YWC16 Interview Project - Top 200 Thailand songs on Spotify features visualization with in-app spotify music player.`
   },
   {
     key: "github_3",
     href: `https://nokroona.web.app/`,
     src: `/images/github_3.jpg`,
     title: `Nok Roo Na`,
-    description: `[Deploy with Firebase Hosting & Heroku] [No maintain]
-    Stupid Hackathon3 Project - Nok Roo Na, LINE exported chat file analytic using rule based prediction.
-    `
+    tags: [
+      TAG_OPTION.FIREBASE_HOSTING,
+      TAG_OPTION.HEROKU,
+      TAG_OPTION.NO_MAINTAIN
+    ],
+    description: `Stupid Hackathon3 Project - Nok Roo Na, LINE exported chat file analytic using rule based prediction.`
   }
 ];

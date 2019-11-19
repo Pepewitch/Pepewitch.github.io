@@ -1,4 +1,4 @@
-import { Icon, Typography } from "antd";
+import { Icon, Tag, Typography } from "antd";
 import React, { useEffect, useMemo } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -49,6 +49,14 @@ const StyledTitle = styled(Title)`
   }
 `;
 
+const TagsContainer = styled.div`
+  margin-bottom: 8px;
+`;
+
+const StyledTag = styled(Tag)`
+  border-radius: 9999px;
+`;
+
 interface IShowcaseCardProps {
   showcase: Showcase;
   onSizeChange?: () => any;
@@ -58,7 +66,7 @@ export const ShowcaseCard = ({
   showcase,
   onSizeChange
 }: IShowcaseCardProps) => {
-  const { href, src, title, description } = showcase;
+  const { href, src, title, description, tags } = showcase;
   const [user, initialising, error] = useAuthState(firebase.auth());
   const [snapshot, loading] = useCollection(
     firebase.firestore().collection(`showcase/${showcase.key}/comment`)
@@ -84,6 +92,15 @@ export const ShowcaseCard = ({
           <Paragraph type="secondary" ellipsis={{ rows: 4 }}>
             {description}
           </Paragraph>
+        )}
+        {tags && (
+          <TagsContainer>
+            {tags.map(tag => (
+              <StyledTag key={tag.text} color={tag.color}>
+                {tag.text}
+              </StyledTag>
+            ))}
+          </TagsContainer>
         )}
         {loading && (
           <SpinnerContainer>
