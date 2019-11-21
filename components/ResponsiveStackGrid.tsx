@@ -34,15 +34,19 @@ const useStackGrid = () => {
 const useIntervalAppear = (items, interval) => {
   const [appearedItems, setAppearedItems] = useState([]);
   useEffect(() => {
-    const showShowcases = async () => {
-      const appeared = [];
-      for (const item of items) {
-        appeared.push(item);
-        setAppearedItems([...appeared]);
-        await new Promise(res => setTimeout(() => res(), interval));
-      }
-    };
-    showShowcases();
+    if (interval) {
+      const showShowcases = async () => {
+        const appeared = [];
+        for (const item of items) {
+          appeared.push(item);
+          setAppearedItems([...appeared]);
+          await new Promise(res => setTimeout(() => res(), interval));
+        }
+      };
+      showShowcases();
+    } else {
+      setAppearedItems(items);
+    }
   }, [items]);
   return appearedItems;
 };

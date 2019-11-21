@@ -9,7 +9,7 @@ import firebase from "../utils/firebase";
 
 const { Title } = Typography;
 
-const Container = styled.div`
+const Container = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
