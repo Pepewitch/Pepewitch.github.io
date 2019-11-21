@@ -50,19 +50,6 @@ const IconContainer = styled.div`
   display: inline-block;
 `;
 
-const SocialLink = styled.a`
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 4px;
-  border-radius: 4px;
-  overflow: hidden;
-  svg {
-    width: 24px;
-    height: 24px;
-  }
-`;
-
 const StyledTitle = styled(Title)`
   &.ant-typography {
     margin-right: 8px;
@@ -126,18 +113,6 @@ export const Header = () => {
         <a href="mailto:skpepe134@gmail.com">
           <StyledTitle level={4}>Pepewitch</StyledTitle>
         </a>
-        <SocialLink href="https://facebook.com/pepewitch" target="_blank">
-          <Icon type="facebook" theme="filled" />
-        </SocialLink>
-        <SocialLink
-          href="https://medium.com/@witchayutpepejongpattanasombut"
-          target="_blank"
-        >
-          <Icon type="medium-square" theme="filled" />
-        </SocialLink>
-        <SocialLink href="https://github.com/Pepewitch" target="_blank">
-          <Icon type="github" theme="filled" />
-        </SocialLink>
       </div>
       <div className="container-item">
         {user ? (

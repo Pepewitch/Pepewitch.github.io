@@ -1,4 +1,4 @@
-import { Button, Modal, Timeline, Typography } from "antd";
+import { Button, Icon, Modal, Timeline, Typography } from "antd";
 import React, { useState } from "react";
 import styled from "styled-components";
 import profileImage from "../public/images/profile.jpg";
@@ -7,13 +7,12 @@ import { COLOR } from "../utils/const";
 const { Title, Text } = Typography;
 
 const ProfileContainer = styled.div`
-  max-width: 400px;
   width: 100%;
   padding: 0 24px;
   margin-left: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   @media screen and (max-width: 500px) {
     margin: auto;
     flex-direction: column-reverse;
@@ -39,9 +38,11 @@ const ProfileContent = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin-right: 16px;
+  margin-left: auto;
   @media screen and (max-width: 500px) {
     margin-top: 16px;
     margin-right: 0;
+    margin-left: 0;
     align-items: center;
   }
 `;
@@ -50,6 +51,27 @@ const StyledTitle = styled(Title)`
   &.ant-typography {
     font-size: 1em;
     color: ${COLOR.PRIMARY};
+  }
+`;
+
+const SocialLink = styled.a`
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+const SocialLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin-top: 16px;
   }
 `;
 
@@ -66,6 +88,20 @@ export const Profile = () => {
   const [open, setOpen] = useState(false);
   return (
     <ProfileContainer>
+      <SocialLinkContainer>
+        <SocialLink href="https://facebook.com/pepewitch" target="_blank">
+          <Icon type="facebook" theme="filled" />
+        </SocialLink>
+        <SocialLink
+          href="https://medium.com/@witchayutpepejongpattanasombut"
+          target="_blank"
+        >
+          <Icon type="medium-square" theme="filled" />
+        </SocialLink>
+        <SocialLink href="https://github.com/Pepewitch" target="_blank">
+          <Icon type="github" theme="filled" />
+        </SocialLink>
+      </SocialLinkContainer>
       <ProfileContent>
         <a href="mailto:skpepe134@gmail.com">
           <StyledTitle>Witchayut Jongpattanasombut (Pepe)</StyledTitle>
