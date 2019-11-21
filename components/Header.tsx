@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import styled from "styled-components";
 import { ReactComponent as FbIcon } from "../public/fb.svg";
 import { ReactComponent as GgIcon } from "../public/gg.svg";
+import { COLOR } from "../utils/const";
 import firebase from "../utils/firebase";
 
 const { Title } = Typography;
@@ -66,7 +67,7 @@ const StyledTitle = styled(Title)`
   &.ant-typography {
     margin-right: 8px;
     margin-bottom: 0;
-    color: #ff577d;
+    color: ${COLOR.PRIMARY};
   }
 `;
 

@@ -9,6 +9,7 @@ import { Card } from "./Card";
 import { CommendBox } from "./CommendBox";
 import { CommentList } from "./CommentList";
 import { Image } from "./Image";
+import { COLOR } from "../utils/const";
 
 const { Title, Paragraph } = Typography;
 
@@ -45,7 +46,7 @@ const SpinnerContainer = styled.div`
 
 const StyledTitle = styled(Title)`
   &.ant-typography {
-    color: #ff577d;
+    color: ${COLOR.PRIMARY};
   }
 `;
 
@@ -106,7 +107,7 @@ export const ShowcaseCard = ({
           <SpinnerContainer>
             <Icon
               type="loading"
-              style={{ fontSize: 32, color: "#ff577d" }}
+              style={{ fontSize: 32, color: COLOR.PRIMARY }}
               spin
             />
           </SpinnerContainer>
