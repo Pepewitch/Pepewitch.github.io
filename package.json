@@ -41,6 +41,7 @@
     "null-loader": "^3.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.4",
+    "url-loader": "^2.2.0",
     "webpack-filter-warnings-plugin": "^1.2.1"
   }
 }

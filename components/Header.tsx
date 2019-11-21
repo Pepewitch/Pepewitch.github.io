@@ -2,8 +2,8 @@ import { Avatar, Button, Icon, Popconfirm, Popover, Typography } from "antd";
 import React, { Fragment } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styled from "styled-components";
-import FbIcon from "../public/fb.svg";
-import GgIcon from "../public/gg.svg";
+import { ReactComponent as FbIcon } from "../public/fb.svg";
+import { ReactComponent as GgIcon } from "../public/gg.svg";
 import firebase from "../utils/firebase";
 
 const { Title } = Typography;
